@@ -14,8 +14,8 @@ namespace xeno {namespace graphics {
 	{
 	private:
 		std::string m_Name, m_Filename;
-		GLuint m_TID;
-		GLsizei m_Width, m_Height;
+		unsigned int m_TID;
+		int m_Width, m_Height;
 		unsigned int m_Bits;
 
 	public:
@@ -30,7 +30,7 @@ namespace xeno {namespace graphics {
 		inline const unsigned int getHeight() const { return m_Height; }
 	
 	private:
-		GLuint load();
+		unsigned int load();
 	};
 
 }}

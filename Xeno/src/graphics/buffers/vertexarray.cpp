@@ -2,50 +2,33 @@
 
 namespace xeno {namespace graphics {
 
-		VertexArray::VertexArray(float* vertices, unsigned short* indices, float* textureCoordinates)
+		VertexArray::VertexArray(const void* vertices, const unsigned int* indices, float* textureCoordinates)
 		{
-			glGenVertexArrays(1, &m_Vao);
-			glBindVertexArray(m_Vao);
-
-			//vertex buffer
-			//m_Vbo = new Buffer(vertices, 12, 3);
-			glGenBuffers(1, &vbo);
-			glBindBuffer(GL_ARRAY_BUFFER, vbo);
-			glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(float), vertices, GL_STATIC_DRAW);
+			glGenVertexArrays(1, &m_ArrayID);
+			glBindVertexArray(m_ArrayID);
+			m_Vbo = new VertexBuffer(vertices, 4 * 3 * sizeof(float));
 
 			glEnableVertexAttribArray(0);
 			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-			if (textureCoordinates != nullptr)
-				//texture
-			{
-				m_Tbo = new Buffer(vertices, 8, 2);
-				glEnableVertexAttribArray(1);
-				glVertexAttribPointer(1, m_Tbo->getComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
-			}
+			m_Tbo = new VertexBuffer(textureCoordinates, 4 * 2 * sizeof(float));
 
-			//index buffer
-			//m_Ibo = new IndexBuffer(indices, 6);
-			glGenBuffers(1, &ibo);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(float), indices, GL_STATIC_DRAW);
+			glEnableVertexAttribArray(1);
+			glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
 
-			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-			//glBindBuffer(GL_ARRAY_BUFFER, 0);
-			//glBindVertexArray(0);
-			
+			m_Ibo = new IndexBuffer(indices, 6);
 		}
 
 		VertexArray::~VertexArray()
 		{
-			glDeleteVertexArrays(1, &m_Vao);
+			glDeleteVertexArrays(1, &m_ArrayID);
+			delete m_Vbo, m_Ibo;
 		}
 
 		void VertexArray::bind() const
 		{
-			glBindVertexArray(m_Vao);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+			glBindVertexArray(m_ArrayID);
+			m_Ibo->bind();
 		}
 
 		void VertexArray::unbind() const
@@ -56,7 +39,13 @@ namespace xeno {namespace graphics {
 
 		void VertexArray::draw() const
 		{
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, nullptr);
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+		}
+
+		void VertexArray::render() const
+		{
+			bind();
+			draw();
 		}
 
 

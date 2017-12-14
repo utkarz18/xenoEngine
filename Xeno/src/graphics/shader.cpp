@@ -1,5 +1,4 @@
 #include<iostream>
-#include <vector>
 #include "shader.h"
 
 namespace xeno{ namespace graphics {
@@ -16,11 +15,11 @@ namespace xeno{ namespace graphics {
 		glDeleteProgram(m_ShaderID);
 	}
 
-	GLuint Shader::load()
+	unsigned int Shader::load()
 	{
-		GLuint program = glCreateProgram();
-		GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
-		GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
+		unsigned int program = glCreateProgram();
+		unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
+		unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
 		std::string vertSourceString = read_file(m_VertPath);
 		std::string fragSourceString = read_file(m_FragPath);
@@ -28,36 +27,8 @@ namespace xeno{ namespace graphics {
 		const char* vertSource = vertSourceString.c_str();
 		const char* fragSource = fragSourceString.c_str();
 
-		glShaderSource(vertex, 1, &vertSource, NULL);
-		glCompileShader(vertex);
-
-		GLint result;
-		glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
-		if (result == GL_FALSE)
-		{
-			GLint length;
-			glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &length);
-			std::vector<char> error(length);
-			glGetShaderInfoLog(vertex, length, &length, &error[0]);
-			std::cout << "Failed to compile vertex shader!" << std::endl << &error[0] << std::endl;
-			glDeleteShader(vertex);
-			return 0;
-		}
-
-		glShaderSource(fragment, 1, &fragSource, NULL);
-		glCompileShader(fragment);
-
-		glGetShaderiv(fragment, GL_COMPILE_STATUS, &result);
-		if (result == GL_FALSE)
-		{
-			GLint length;
-			glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &length);
-			std::vector<char> error(length);
-			glGetShaderInfoLog(fragment, length, &length, &error[0]);
-			std::cout << "Failed to compile fragment shader!" << std::endl << &error[0] << std::endl;
-			glDeleteShader(fragment);
-			return 0;
-		}
+		compileShader(vertex, vertSource, "vertex");
+		compileShader(fragment, fragSource, "fragment");
 
 		glAttachShader(program, vertex);
 		glAttachShader(program, fragment);
@@ -71,47 +42,66 @@ namespace xeno{ namespace graphics {
 		return program;
 	}
 
-	GLint Shader::getUniformLocation(const GLchar* name)
+	void Shader::compileShader(unsigned int id, const char* shaderSource, std::string shadertype)
+	{
+		glShaderSource(id, 1, &shaderSource, NULL);
+		glCompileShader(id);
+
+		int result;
+		glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+		if (result == GL_FALSE)
+		{
+			int length;
+			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+			char* message = (char*)alloca(length * sizeof(char));
+			glGetShaderInfoLog(id, length, &length, message);
+			std::cout << "Failed to compile " << shadertype << " shader!" << std::endl << message << std::endl;
+			glDeleteShader(id);
+			return;
+		}
+	}
+
+	int Shader::getUniformLocation(const char* name)
 	{
 		return glGetUniformLocation(m_ShaderID, name);
 	}
 
-	void Shader::setUniform1f(const GLchar* name, float value)
+	void Shader::setUniform1f(const char* name, float value)
 	{
 		glUniform1f(getUniformLocation(name), value);
 	}
 
-	void  Shader::setUniform1fv(const GLchar* name, float* value, int count)
+	void  Shader::setUniform1fv(const char* name, float* value, int count)
 	{
 		glUniform1fv(getUniformLocation(name), count, value);
 	}
 
-	void Shader::setUniform1i(const GLchar* name, int value)
+	void Shader::setUniform1i(const char* name, int value)
 	{
 		glUniform1i(getUniformLocation(name), value);
 	}
 
-	void  Shader::setUniform1iv(const GLchar* name, int* value, int count)
+	void  Shader::setUniform1iv(const char* name, int* value, int count)
 	{
 		glUniform1iv(getUniformLocation(name), count, value);
 	}
 
-	void Shader::setUniform2f(const GLchar* name, const maths::vec2& vector)
+	void Shader::setUniform2f(const char* name, const maths::vec2& vector)
 	{
 		glUniform2f(getUniformLocation(name), vector.x, vector.y);
 	}
 
-	void Shader::setUniform3f(const GLchar* name, const maths::vec3& vector)
+	void Shader::setUniform3f(const char* name, const maths::vec3& vector)
 	{
 		glUniform3f(getUniformLocation(name), vector.x, vector.y, vector.z);
 	}
 
-	void Shader::setUniform4f(const GLchar* name, const maths::vec4& vector)
+	void Shader::setUniform4f(const char* name, const maths::vec4& vector)
 	{
 		glUniform4f(getUniformLocation(name), vector.x, vector.y, vector.z, vector.w);
 	}
 
-	void Shader::setUniformMat4(const GLchar* name, const maths::mat4& matrix)
+	void Shader::setUniformMat4(const char* name, const maths::mat4& matrix)
 	{
 		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.elements);
 	}

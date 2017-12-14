@@ -1,6 +1,6 @@
 #pragma once
 
-#include "buffers/buffer.h"
+#include "buffers/Vertexbuffer.h"
 #include "buffers/indexbuffer.h"
 #include "buffers/vertexarray.h"
 #include "shader.h"

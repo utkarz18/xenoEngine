@@ -11,6 +11,8 @@
 #include "graphics/layers/layer.h"
 #include "graphics/layers/group.h"
 #include "graphics/texture_manager.h"
+#include "graphics/buffers/vertexBuffer.h"
+#include "graphics/buffers/indexBuffer.h"
 
 #include "audio/audio.h"
 #include "audio/audio_manager.h"
