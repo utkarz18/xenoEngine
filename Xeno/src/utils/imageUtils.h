@@ -5,7 +5,7 @@
 
 namespace xeno {
 	
-	static BYTE* load_image(const char* filename, GLsizei* width, GLsizei* height, unsigned int* bits)
+	static BYTE* load_image(const char* filename, int* width, int* height, unsigned int* bits)
 	{
 		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
 		FIBITMAP *dib = nullptr;

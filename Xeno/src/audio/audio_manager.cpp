@@ -47,6 +47,7 @@ namespace xeno { namespace audio {
 			if (audio->getName() == name)
 				return audio;
 		}
+		return nullptr;
 	}
 
 

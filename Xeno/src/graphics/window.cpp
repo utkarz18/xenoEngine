@@ -16,12 +16,10 @@ namespace xeno {namespace graphics {
 		if (!init())
 			glfwTerminate();
 
-		//FontManager::add(new Font("Arial", "res/arial1.ttf", 32));
-
 #ifdef XENO_PLATFORM_WEB
 		FreeImage_Initialise();
 #endif
-		//audio::AudioManager::init();
+		audio::AudioManager::init();
 
 		for (int i = 0; i < MAX_KEYS; i++)
 		{
@@ -40,9 +38,9 @@ namespace xeno {namespace graphics {
 
 	Window::~Window()
 	{
-		//FontManager::clean();
+		FontManager::clean();
 		//TextureManager::clean();
-		//audio::AudioManager::clean();
+		audio::AudioManager::clean();
 		glfwTerminate();
 	}
 
@@ -78,6 +76,7 @@ namespace xeno {namespace graphics {
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_DEPTH_TEST);
 
 		std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 
@@ -127,12 +126,10 @@ namespace xeno {namespace graphics {
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR)
 			std::cout << "OpenGL Error: " << error << std::endl;
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glClearColor(1, 1, 1, 0);
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 
-		//audio::AudioManager::update();
+		audio::AudioManager::update();
 	}
 
 	void Window::updateInput()

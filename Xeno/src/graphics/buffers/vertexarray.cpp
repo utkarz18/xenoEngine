@@ -2,52 +2,70 @@
 
 namespace xeno {namespace graphics {
 
-		VertexArray::VertexArray(const void* vertices, const unsigned int* indices, float* textureCoordinates)
+		VertexArray::VertexArray()
 		{
 			glGenVertexArrays(1, &m_ArrayID);
-			glBindVertexArray(m_ArrayID);
-			m_Vbo = new VertexBuffer(vertices, 4 * 3 * sizeof(float));
-
-			glEnableVertexAttribArray(0);
-			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-
-			m_Tbo = new VertexBuffer(textureCoordinates, 4 * 2 * sizeof(float));
-
-			glEnableVertexAttribArray(1);
-			glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
-
-			m_Ibo = new IndexBuffer(indices, 6);
 		}
 
 		VertexArray::~VertexArray()
 		{
 			glDeleteVertexArrays(1, &m_ArrayID);
-			delete m_Vbo, m_Ibo;
+			if(m_BufferLayout  != nullptr)
+				delete m_BufferLayout;
+			for (int i = 0; i < m_buffers.size(); i++)
+				delete m_buffers[i];
+		}
+
+		void VertexArray::addBuffer(const VertexBuffer* vb)
+		{
+			m_buffers.push_back(vb);
+		}
+
+		void VertexArray::processBufers()
+		{
+			bind();
+			unsigned int offset = 0;
+			const auto& elements = m_BufferLayout->getElements();
+			for (int i = 0; i < elements.size(); i++)
+			{
+				const auto& element = elements[i];
+				const auto& buffer = m_buffers[i];
+				buffer->bind();
+				glEnableVertexAttribArray(i);
+				glVertexAttribPointer(i, element.count, element.type, element.normalized,
+					element.stride, (const void*)offset);
+				//offset += element.count * LayoutData::getSizeOfType(element.type);
+			}
+		}
+
+		void VertexArray::setBufferLayout(const VertexBufferLayout* bufferLayout)
+		{
+			m_BufferLayout = bufferLayout;
 		}
 
 		void VertexArray::bind() const
 		{
 			glBindVertexArray(m_ArrayID);
-			m_Ibo->bind();
 		}
 
 		void VertexArray::unbind() const
 		{
-			m_Ibo->unbind();
 			glBindVertexArray(0);
 		}
 
-		void VertexArray::draw() const
+		void VertexArray::draw(unsigned int indexCount) const
 		{
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, nullptr);
 		}
 
-		void VertexArray::render() const
+		void VertexArray::render(IndexBuffer* ib) const
 		{
 			bind();
-			draw();
+			ib->bind();
+			draw(ib->getCount());
+			ib->unbind();
+			unbind();
 		}
-
 
 	}
 }

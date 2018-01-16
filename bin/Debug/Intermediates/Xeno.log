@@ -1,0 +1,10 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Flappy.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  label.cpp
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\label.cpp(115): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  shader.cpp
+  Generating Code...
+  Xeno.vcxproj -> E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Xeno.lib

@@ -1,0 +1,27 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Xeno.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  flappy.cpp
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\softwares\visualstudio projects\xenoengine\flappy\src\flappy.cpp(68): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\softwares\visualstudio projects\xenoengine\flappy\src\flappy.cpp(73): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\softwares\visualstudio projects\xenoengine\flappy\src\flappy.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\softwares\visualstudio projects\xenoengine\flappy\src\flappy.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+e:\softwares\visualstudio projects\xenoengine\flappy\src\flappy.cpp(81): warning C4018: '<': signed/unsigned mismatch
+e:\softwares\visualstudio projects\xenoengine\flappy\src\flappy.cpp(128): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  pipe.cpp
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  bird.cpp
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  background.cpp
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Generating Code...
+e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\buffers\vertexbufferlayout.h(19): warning C4715: 'LayoutData::getSizeOfType': not all control paths return a value
+e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\buffers\vertexbufferlayout.h(19): warning C4715: 'LayoutData::getSizeOfType': not all control paths return a value
+e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\buffers\vertexbufferlayout.h(19): warning C4715: 'LayoutData::getSizeOfType': not all control paths return a value
+  Flappy.vcxproj -> E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Flappy.exe
+  Flappy.vcxproj -> E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Flappy.pdb (Full PDB)

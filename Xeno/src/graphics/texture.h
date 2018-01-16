@@ -5,7 +5,10 @@
 
 #include <xenogl.h>
 
-#include <utils/log.h>
+#ifndef XENO_PLATFORM_WEB
+	#include <utils/log.h>
+#endif 
+
 #include <utils/imageUtils.h>
 
 namespace xeno {namespace graphics {

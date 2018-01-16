@@ -12,7 +12,7 @@ namespace xeno {namespace maths {
 
 	inline float toDegrees(float radians)
 	{
-		return radians * (180.0f / M_PI);
+		return radians * (float)(180.0f / M_PI);
 	}
 
 	inline int sign(float value)

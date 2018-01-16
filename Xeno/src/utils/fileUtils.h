@@ -7,6 +7,13 @@ namespace xeno {
 	static std::string read_file(const char* filepath)
 	{
 		FILE* file = fopen(filepath, "rt");
+		/*if (file == NULL)
+		{
+			file = fopen(filepath, "w");
+			fprintf(file, "0");
+			fclose(file);
+			file = fopen(filepath, "rt");
+		}*/
 		fseek(file, 0, SEEK_END);
 		unsigned long length = ftell(file);
 		char* data = new char[length + 1];
@@ -18,6 +25,13 @@ namespace xeno {
 		std::string result(data);
 		delete[] data;
 		return result;
+	}
+
+	static void write_file(const char* filepath, const std::string data)
+	{
+		FILE* file = fopen(filepath, "w");
+		fprintf(file, "%s", data.c_str());
+		fclose(file);
 	}
 
 }

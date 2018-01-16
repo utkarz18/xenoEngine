@@ -5,12 +5,16 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Xeno", "Xeno\Xeno.vcxproj", "{A7AF89F6-1185-4303-9031-688784C77E7C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flappy", "Flappy\Flappy.vcxproj", "{937ACC15-BBAD-45C3-B572-6347CCFB27CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
+		XenoWeb|x64 = XenoWeb|x64
+		XenoWeb|x86 = XenoWeb|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A7AF89F6-1185-4303-9031-688784C77E7C}.Debug|x64.ActiveCfg = Debug|x64
@@ -21,6 +25,22 @@ Global
 		{A7AF89F6-1185-4303-9031-688784C77E7C}.Release|x64.Build.0 = Release|x64
 		{A7AF89F6-1185-4303-9031-688784C77E7C}.Release|x86.ActiveCfg = Release|Win32
 		{A7AF89F6-1185-4303-9031-688784C77E7C}.Release|x86.Build.0 = Release|Win32
+		{A7AF89F6-1185-4303-9031-688784C77E7C}.XenoWeb|x64.ActiveCfg = XenoWeb|x64
+		{A7AF89F6-1185-4303-9031-688784C77E7C}.XenoWeb|x64.Build.0 = XenoWeb|x64
+		{A7AF89F6-1185-4303-9031-688784C77E7C}.XenoWeb|x86.ActiveCfg = XenoWeb|Win32
+		{A7AF89F6-1185-4303-9031-688784C77E7C}.XenoWeb|x86.Build.0 = XenoWeb|Win32
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Debug|x64.ActiveCfg = Debug|x64
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Debug|x64.Build.0 = Debug|x64
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Debug|x86.ActiveCfg = Debug|Win32
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Debug|x86.Build.0 = Debug|Win32
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Release|x64.ActiveCfg = Release|x64
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Release|x64.Build.0 = Release|x64
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Release|x86.ActiveCfg = Release|Win32
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.Release|x86.Build.0 = Release|Win32
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x64.ActiveCfg = XenoWeb|x64
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x64.Build.0 = XenoWeb|x64
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x86.ActiveCfg = XenoWeb|Win32
+		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x86.Build.0 = XenoWeb|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

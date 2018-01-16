@@ -15,17 +15,18 @@ namespace xeno { namespace graphics {
 
 	unsigned int Texture::load()
 	{
-		unsigned char* pixels = load_image(m_Filename.c_str(), &m_Width, &m_Height, &m_Bits);
-
 		unsigned int result;
 		glGenTextures(1, &result);
 		glBindTexture(GL_TEXTURE_2D, result);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-		if (m_Bits != 24 && m_Bits != 32)
+		unsigned char* pixels = load_image(m_Filename.c_str(), &m_Width, &m_Height, &m_Bits);
+		if (m_Bits != 24 && m_Bits != 32) {
+#ifndef XENO_PLATFORM_WEB
 			XENO_ERROR("[Texture] Unsupported image bit-depth! (%d)", m_Bits);
-
+#endif
+		}
 		int internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 		unsigned int format = m_Bits == 32 ?
 #ifdef XENO_PLATFORM_WEB
