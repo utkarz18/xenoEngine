@@ -13,8 +13,10 @@ namespace xeno{ namespace graphics {
 		unsigned int m_ShaderID;
 		const char* m_VertPath;
 		const char* m_FragPath;
+		const char* m_ShaderFor;
+
 	public:
-		Shader(const char* vertPath, const char* fragPath);
+		Shader(const char* vertPath, const char* fragPath, const char* shaderFor);
 		~Shader();
 
 

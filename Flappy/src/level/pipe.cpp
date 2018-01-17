@@ -59,7 +59,7 @@ void Pipe::init()
 	ib = new IndexBuffer(indices, 6);
 
 	m_Texture = new Texture("pipe", "res/sprites/pipe.png");
-	m_Shader = new Shader("res/shaders/pipe.vert", "res/shaders/pipe.frag");
+	m_Shader = new Shader("res/shaders/pipe.vert", "res/shaders/pipe.frag", "Pipe");
 }
 
 void Pipe::render(int i, int xScroll, Pipe* pipe)

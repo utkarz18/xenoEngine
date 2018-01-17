@@ -1,17 +1,10 @@
-#version 330 core
+varying highp vec2 vs_tc;
+varying highp vec4 vs_color;
 
-layout (location = 0) out vec4 color;
-
-uniform sampler2D tex;
-
-in DATA
-{
-	vec2 tc;
-	vec4 color;
-}fs_in;
+uniform sampler2D texture_3;
 
 void main()
 {
-	color = fs_in.color * vec4(texture(tex, fs_in.tc).b);
+	color = vs_color * vec4(texture2D(texture_3, vs_tc).b);
 	//color = vec4(0.8);
 }

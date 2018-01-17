@@ -70,7 +70,7 @@ namespace xeno { namespace graphics {
 
 			delete[] indices;
 
-			m_Shader = new Shader("res/shaders/label.vert", "res/shaders/label.frag");
+			m_Shader = new Shader("res/shaders/label.vert", "res/shaders/label.frag", "Label");
 
 #ifdef XENO_PLATFORM_WEB
 			m_BufferBase = new VertexData[520 * 4];

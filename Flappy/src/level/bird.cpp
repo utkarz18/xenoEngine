@@ -53,7 +53,7 @@ void Bird::init()
 	ib = new IndexBuffer(indices, 6);
 
 	m_Texture = new Texture("bird", "res/sprites/bird.png");
-	m_Shader = new Shader("res/shaders/bird.vert", "res/shaders/bird.frag");
+	m_Shader = new Shader("res/shaders/bird.vert", "res/shaders/bird.frag", "Bird");
 
 	m_Shader->enable();
 	m_Shader->setUniformMat4("vw_matrix", mat4::translate(m_Position));

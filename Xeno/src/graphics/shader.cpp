@@ -3,10 +3,11 @@
 
 namespace xeno{ namespace graphics {
 
-	Shader::Shader(const char* vertPath, const char* fragPath)
+	Shader::Shader(const char* vertPath, const char* fragPath, const char* shaderFor)
 	{
 		m_VertPath = vertPath;
 		m_FragPath = fragPath;
+		m_ShaderFor = shaderFor;
 		m_ShaderID = load();
 	}
 	
@@ -55,7 +56,7 @@ namespace xeno{ namespace graphics {
 			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
 			char* message = (char*)alloca(length * sizeof(char));
 			glGetShaderInfoLog(id, length, &length, message);
-			std::cout << "Failed to compile " << shadertype << " shader!" << std::endl << message << std::endl;
+			std::cout << m_ShaderFor << ":Failed to compile " << shadertype << " shader!" << std::endl << message << std::endl;
 			glDeleteShader(id);
 			return;
 		}

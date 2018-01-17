@@ -52,7 +52,7 @@ void Background::init()
 	ib = new IndexBuffer(indices, 6);
 
 	m_Texture = new Texture("pipe", "res/sprites/bg.jpeg");
-	m_Shader = new Shader("res/shaders/bg.vert", "res/shaders/bg.frag");
+	m_Shader = new Shader("res/shaders/bg.vert", "res/shaders/bg.frag", "Background");
 }
 
 void Background::render(int i, int xScroll, int map)

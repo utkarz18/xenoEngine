@@ -1,24 +1,16 @@
-#version 330 core
+varying highp vec3 vs_position;
+varying highp vec2 vs_tc;
 
-layout (location = 0) out vec4 color;
-
-in DATA
-{
-	vec2 tc;
-	vec3 position;
-} fs_in;
-
-uniform vec2 bird;
-uniform sampler2D tex;
+uniform sampler2D texture_2;
 uniform int top;
 
 void main()
 {
-	vec2 tc = fs_in.tc;
+	vec2 tc = vs_tc;
 	if (top == 1)
 		tc.y = 1.0f - tc.y;
 		
-	color = texture(tex, tc);
+	color = texture2D(texture_2, tc);
 	if (color.w < 1.0)
 		discard;
 	//color *= 2.0 / (length(bird - fs_in.position.xy) + 1.5) + 0.5;
