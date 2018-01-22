@@ -1,8 +1,9 @@
+precision highp float;
 varying highp vec2 vs_tc;
 
-uniform sampler2D texture_0;
+uniform sampler2D tex;
 
 void main()
 {
-	color = texture2D(texture_0, vs_tc);
+	gl_FragColor = texture2D(tex, vs_tc);
 }

@@ -10,12 +10,14 @@ struct LayoutData
 
 	static unsigned int getSizeOfType(unsigned int type)
 	{
+		unsigned int value;
 		switch (type)
 		{
-		case GL_FLOAT:			return 4;
-		case GL_UNSIGNED_INT:	return 4;
-		case GL_UNSIGNED_BYTE:	return 1;
+		case GL_FLOAT:		    value = 4;  break;
+		case GL_UNSIGNED_INT:	value = 4;  break;
+		case GL_UNSIGNED_BYTE:	value = 1;  break;
 		}
+		return value;
 	}
 };
 

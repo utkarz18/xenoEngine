@@ -32,7 +32,7 @@ private:
 	Bird* bird;
 	Pipe* pipe;
 	Pipe** pipes = new Pipe* [5 * 2];
-	Label *title, *startMsg, *score, *highScore, *gameOverMsg;
+	//Label *title, *startMsg, *score, *highScore, *gameOverMsg;
 
 	int xScroll, map, index, scoreCount = 0;
 	float OFFSET = 10.0f;
@@ -55,10 +55,10 @@ public:
 		for (int i = 0; i < 5 * 2; i++)
 			delete pipes[i];
 		delete[] pipes;
-		delete title;
+		/*delete title;
 		delete startMsg;
 		delete score;
-		delete highScore;
+		delete highScore;*/
 	}
 
 	void init() override
@@ -70,14 +70,14 @@ public:
 		pipe = new Pipe();
 		createPipes();
 
-		title = new Label("Flappy Bird", -5.8, 2, 0xffffffff, 32);
+		/*title = new Label("Flappy Bird", -5.8, 2, 0xffffffff, 32);
 		startMsg = new Label("Press SPACE to Play", -4, -4, FontManager::get("FlappyS"), 0xffffffff, 90);
 		score = new Label("0", -0.4, 4, FontManager::get("FlappyS"), 0xffffffff, 50);
-		highScore = new Label("", -2.8, 0, FontManager::get("FlappyS"), 0xffffffff, 80);
+		highScore = new Label("", -2.8, 0, FontManager::get("FlappyS"), 0xffffffff, 80);*/
 
 		mat4 pr_matrix = mat4::orthographic(-10.0f, 10.0f, -10.0f * 9.0f / 16.0f, 10.0f * 9.0f / 16.0f, -1.0f, 1.0f);
 		
-		std::vector<Renderable2D*> sprites = { bird, background, pipe, title, startMsg, score, highScore};
+		std::vector<Renderable2D*> sprites = { bird, background, pipe}; //title, startMsg, score, highScore};
 		for (int i = 0; i < sprites.size(); i++)
 		{
 			int texIndex = i;
@@ -164,8 +164,8 @@ public:
 				if (birdX0 == pipeX1 + 0.5 && birdX0 == pipe2X1 + 0.5)
 				{
 					scoreCount++;
-					score->m_Text = std::to_string(scoreCount);
-					score->update();
+					/*score->m_Text = std::to_string(scoreCount);
+					score->update();*/
 					audio::AudioManager::get("Score")->play();
 				}
 			}
@@ -189,10 +189,10 @@ public:
 				gameRunning = false;
 				audio::AudioManager::get("Hit")->play();
 				bird->fall();
-				startMsg->m_Text = "Press ENTER to Restart";
+				/*startMsg->m_Text = "Press ENTER to Restart";
 				startMsg->update();
 				highScore->m_Text = "High Score : " + std::to_string(highScoreCount);
-				highScore->update();
+				highScore->update();*/
 				//audio::AudioManager::get("Die")->play();
 			}
 		}
@@ -209,17 +209,17 @@ public:
 		bird->render();
 		if (!gameStarted)
 		{
-			title->render();
-			startMsg->render();
+			//title->render();
+			//startMsg->render();
 		}
 		else 
 		{
 			if (!gameRunning)
 			{
-				startMsg->render();
-				highScore->render();
+				//startMsg->render();
+				//highScore->render();
 			}
-			score->render();
+			//score->render();
 		}
 
 	}
@@ -249,8 +249,8 @@ int main()
 {
 	Window* window = new Window("Flappy Bird!", 960, 540);
 
-	FontManager::add(new Font("Flappy", "res/fonts/flappy.ttf", 128));
-	FontManager::add(new Font("FlappyS", "res/fonts/flappy_score.ttf", 64));
+	//FontManager::add(new Font("Flappy", "res/fonts/flappy.ttf", 128));
+	//FontManager::add(new Font("FlappyS", "res/fonts/flappy_score.ttf", 64));
 
 	AudioManager::add(new Audio("Flap", "res/sounds/flap.wav"));
 	AudioManager::add(new Audio("Hit", "res/sounds/hit.wav"));

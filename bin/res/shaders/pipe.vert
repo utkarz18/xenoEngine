@@ -2,8 +2,8 @@ attribute highp vec4 position;
 attribute highp vec2 tc;
 
 uniform highp mat4 pr_matrix;
-uniform highp mat4 vw_matrix = mat4(1.0);
-uniform highp mat4 ml_matrix = mat4(1.0);
+uniform highp mat4 vw_matrix;
+uniform highp mat4 ml_matrix;
 
 varying highp vec2 vs_tc;
 varying highp vec3 vs_position;

@@ -1,10 +1,12 @@
-varying highp vec4 vs_position;
+precision highp float;
+varying highp vec3 vs_position;
 varying highp vec2 vs_tc;
 
-uniform highp sampler2D texture_1;
+uniform sampler2D tex;
 
 void main()
 {
-	color = texture2D(texture_1, vs_tc);
-	//color *= 2.0 / (length(bird - fs_in.position.xy) + 2.5) + 0.5;
+	vec4 color = texture2D(tex, vs_tc);
+	color *= 2.0 / (length(vs_position.xy) + 2.5) + 0.5;
+	gl_FragColor = color;
 }

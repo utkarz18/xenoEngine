@@ -3,8 +3,8 @@ attribute highp vec2 tc;
 attribute highp vec4 color;
 
 uniform highp mat4 pr_matrix;
-uniform highp mat4 vw_matrix = mat4(1.0);
-uniform highp mat4 ml_matrix = mat4(1.0);
+highp mat4 vw_matrix = mat4(1.0);
+highp mat4 ml_matrix = mat4(1.0);
 
 varying highp vec2 vs_tc;
 varying highp vec4 vs_color;

@@ -16,7 +16,8 @@ Pipe::~Pipe()
 {
 	delete m_Mesh;
 	delete m_Texture;
-	delete m_Shader;
+	if(m_Shader != NULL)
+		delete m_Shader;
 	delete ib;
 }
 

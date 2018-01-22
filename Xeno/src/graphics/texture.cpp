@@ -2,6 +2,7 @@
 
 namespace xeno { namespace graphics {
 	
+	bool isPowerOfTwo(int x);
 	Texture::Texture(const std::string& name, const std::string& filename)
 		:m_Filename(filename)
 	{
@@ -26,6 +27,7 @@ namespace xeno { namespace graphics {
 #ifndef XENO_PLATFORM_WEB
 			XENO_ERROR("[Texture] Unsupported image bit-depth! (%d)", m_Bits);
 #endif
+			std::cout << "Unsupported Image!" << std::endl;
 		}
 		int internalFormat = m_Bits == 32 ? GL_RGBA : GL_RGB;
 		unsigned int format = m_Bits == 32 ?
@@ -35,6 +37,14 @@ namespace xeno { namespace graphics {
 		GL_BGRA: GL_BGR;
 #endif
 		glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, m_Width, m_Height, 0, format, GL_UNSIGNED_BYTE, pixels);
+		if (isPowerOfTwo(m_Width)  && isPowerOfTwo(m_Width)) {
+			glGenerateMipmap(GL_TEXTURE_2D);
+		}
+		else {       
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		}
 		glBindTexture(GL_TEXTURE_2D, 0);
 
 		delete[] pixels;
@@ -50,5 +60,11 @@ namespace xeno { namespace graphics {
 	void Texture::unbind() const
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	bool isPowerOfTwo(int x)
+	{
+		/*  x in the below expression is for the case when x is 0 */
+		return x && (!(x&(x - 1)));
 	}
 }}

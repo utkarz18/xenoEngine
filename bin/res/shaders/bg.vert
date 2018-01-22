@@ -12,4 +12,4 @@ void main()
 	gl_Position = pr_matrix * vw_matrix * position;
 	vs_tc = tc;
 	vs_position = vec3(vw_matrix * position);
-}
+} 
