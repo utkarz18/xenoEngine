@@ -15,10 +15,9 @@ Pipe::Pipe(float x, float y)
 Pipe::~Pipe()
 {
 	delete m_Mesh;
-	delete m_Texture;
-	if(m_Shader != NULL)
-		delete m_Shader;
-	delete ib;
+	if (m_Texture != NULL)  delete m_Texture;
+	if (m_Shader != NULL)   delete m_Shader;
+	if (ib != NULL)         delete ib;
 }
 
 void Pipe::init()

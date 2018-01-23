@@ -1,6 +1,6 @@
 #include "vertexarray.h"
 
-namespace xeno {namespace graphics {
+namespace xeno { namespace graphics {
 
 		VertexArray::VertexArray()
 		{
@@ -10,10 +10,10 @@ namespace xeno {namespace graphics {
 		VertexArray::~VertexArray()
 		{
 			glDeleteVertexArrays(1, &m_ArrayID);
-			if(m_BufferLayout  != nullptr)
+			if (m_BufferLayout != nullptr)
 				delete m_BufferLayout;
 			for (int i = 0; i < m_buffers.size(); i++)
-				delete m_buffers[i];
+				if (m_buffers[i] != NULL) { delete m_buffers[i]; m_buffers[i] = NULL; }
 		}
 
 		void VertexArray::addBuffer(const VertexBuffer* vb)

@@ -48,7 +48,7 @@ namespace xeno { namespace graphics {
 		{
 			m_Mesh = new VertexArray();
 
-			vb = new VertexBuffer(NULL, 520 * sizeof(float));
+			vb = new VertexBuffer(NULL, 530 * sizeof(float));
 
 			unsigned int* indices = new unsigned int[150];
 

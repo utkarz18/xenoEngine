@@ -1,7 +1,52 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Xeno.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  pipe.cpp
-c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Flappy.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Flappy.vcxproj -> E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Flappy.exe
-  Flappy.vcxproj -> E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Flappy.pdb (Full PDB)
+﻿Build started 1/23/2018 2:55:40 PM.
+     1>Project "D:\Visual Studio Projects\XenoEngine\Flappy\Flappy.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Xeno.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\Visual Studio Projects\XenoEngine\xeno\src\\" /Isrc\level\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D GLEW_STATIC /D FT2_BUILD_LIBRARY /D WIN32 /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\\" /Fd"D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\flappy.cpp src\level\pipe.cpp
+         pipe.cpp
+     1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+         d:\visual studio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+         flappy.cpp
+     1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+         d:\visual studio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+     1>d:\visual studio projects\xenoengine\flappy\src\flappy.cpp(68): warning C4305: 'argument': truncation from 'double' to 'const float'
+     1>d:\visual studio projects\xenoengine\flappy\src\flappy.cpp(81): warning C4018: '<': signed/unsigned mismatch
+     1>d:\visual studio projects\xenoengine\flappy\src\flappy.cpp(128): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Visual Studio Projects\XenoEngine\bin\Debug\Flappy.exe" /INCREMENTAL /NOLOGO glfw3.lib glew32s.lib opengl32.lib FreeImage.lib OpenAL32.lib libvorbis.lib libogg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\Visual Studio Projects\XenoEngine\bin\Debug\Flappy.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Visual Studio Projects\XenoEngine\bin\Debug\Flappy.lib" /MACHINE:X86 "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\flappy.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\background.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\bird.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\pipe.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Xeno.lib"
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\vc120.pdb'; linking object as if no debug info
+     1>libvorbis.lib(analysis.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(analysis.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(bitrate.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(bitrate.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(block.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(block.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(codebook.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(codebook.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(envelope.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(envelope.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(floor0.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(floor0.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(floor1.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(floor1.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(info.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(info.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(lpc.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(lpc.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(lsp.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(lsp.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(mapping0.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(mapping0.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(mdct.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(mdct.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(psy.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(psy.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(registry.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(registry.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(res0.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(res0.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(sharedbook.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(sharedbook.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(smallft.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(smallft.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(synthesis.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(synthesis.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(vorbisfile.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(vorbisfile.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libvorbis.lib(window.obj) : warning LNK4099: PDB 'libvorbis.pdb' was not found with 'libvorbis.lib(window.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\libvorbis.pdb'; linking object as if no debug info
+     1>libogg.lib(bitwise.obj) : warning LNK4099: PDB 'Project1.pdb' was not found with 'libogg.lib(bitwise.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\Project1.pdb'; linking object as if no debug info
+     1>libogg.lib(framing.obj) : warning LNK4099: PDB 'Project1.pdb' was not found with 'libogg.lib(framing.obj)' or at 'D:\Visual Studio Projects\XenoEngine\bin\Debug\Project1.pdb'; linking object as if no debug info
+         Flappy.vcxproj -> D:\Visual Studio Projects\XenoEngine\bin\Debug\Flappy.exe
+     1>Done Building Project "D:\Visual Studio Projects\XenoEngine\Flappy\Flappy.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.43

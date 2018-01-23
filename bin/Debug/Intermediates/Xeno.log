@@ -1,12 +1,82 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Flappy.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  vertexarray.cpp
-e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\buffers\vertexarray.cpp(15): warning C4018: '<': signed/unsigned mismatch
-e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\buffers\vertexarray.cpp(29): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Compiling...
-  label.cpp
-c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\softwares\visualstudio projects\xenoengine\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\softwares\visualstudio projects\xenoengine\xeno\src\graphics\label.cpp(115): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Xeno.vcxproj -> E:\Softwares\VisualStudio Projects\XenoEngine\bin\Debug\Xeno.lib
+﻿Build started 1/23/2018 2:55:35 PM.
+     1>Project "D:\Visual Studio Projects\XenoEngine\Xeno\Xeno.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\) contains files shared from another project (Flappy.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Isrc /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D GLEW_STATIC /D FT2_BUILD_LIBRARY /D WIN32 /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\\" /Fd"D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\Xeno.pdb" /Gd /TP /analyze- /errorReport:prompt src\graphics\buffers\vertexarray.cpp
+         vertexarray.cpp
+     1>d:\visual studio projects\xenoengine\xeno\src\graphics\buffers\vertexarray.cpp(15): warning C4018: '<': signed/unsigned mismatch
+     1>d:\visual studio projects\xenoengine\xeno\src\graphics\buffers\vertexarray.cpp(29): warning C4018: '<': signed/unsigned mismatch
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"D:\Visual Studio Projects\XenoEngine\bin\Debug\Xeno.lib" /NOLOGO "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\distance-field.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\edtaa3func.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\platform.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\texture-atlas.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\texture-font.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\utf8-utils.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vector.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\autofit.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftbase.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftbbox.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftbitmap.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftdebug.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftfntfmt.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftfstype.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftgasp.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftglyph.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftgxval.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftinit.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftlcdfil.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftmm.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftotval.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftpatent.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftpfr.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftstroke.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftsynth.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftsystem.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\fttype1.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftwinfnt.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\bdf.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftcache.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\cff.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\type1cid.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftgzip.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ftlzw.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\pcf.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\pfr.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\psaux.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\pshinter.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\psmodule.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\raster.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\sfnt.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\smooth.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\truetype.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\type1.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\type42.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\winfnt.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\gc_common.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\gc_thread.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ga_openal.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ga.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\gau.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\ga_stream.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\audio.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\audio_manager.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\indexbuffer.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vertexarray.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vertexBuffer.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\font.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\font_manager.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\label.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\shader.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\texture.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\window.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\mat4.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vec2.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vec3.obj"
+         "D:\Visual Studio Projects\XenoEngine\bin\Debug\Intermediates\vec4.obj"
+         Xeno.vcxproj -> D:\Visual Studio Projects\XenoEngine\bin\Debug\Xeno.lib
+     1>Done Building Project "D:\Visual Studio Projects\XenoEngine\Xeno\Xeno.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.12

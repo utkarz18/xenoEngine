@@ -77,7 +77,7 @@ public:
 
 		mat4 pr_matrix = mat4::orthographic(-10.0f, 10.0f, -10.0f * 9.0f / 16.0f, 10.0f * 9.0f / 16.0f, -1.0f, 1.0f);
 		
-		std::vector<Renderable2D*> sprites = { bird, background, pipe}; //title, startMsg, score, highScore};
+		std::vector<Renderable2D*> sprites = { bird, background, pipe };//, title, startMsg, score, highScore};
 		for (int i = 0; i < sprites.size(); i++)
 		{
 			int texIndex = i;
@@ -209,17 +209,17 @@ public:
 		bird->render();
 		if (!gameStarted)
 		{
-			//title->render();
-			//startMsg->render();
+			/*title->render();
+			startMsg->render();*/
 		}
 		else 
 		{
 			if (!gameRunning)
 			{
-				//startMsg->render();
-				//highScore->render();
+				/*startMsg->render();
+				highScore->render();*/
 			}
-			//score->render();
+			/*score->render();*/
 		}
 
 	}
@@ -249,8 +249,8 @@ int main()
 {
 	Window* window = new Window("Flappy Bird!", 960, 540);
 
-	//FontManager::add(new Font("Flappy", "res/fonts/flappy.ttf", 128));
-	//FontManager::add(new Font("FlappyS", "res/fonts/flappy_score.ttf", 64));
+	/*FontManager::add(new Font("Flappy", "res/fonts/flappy.ttf", 128));
+	FontManager::add(new Font("FlappyS", "res/fonts/flappy_score.ttf", 64));*/
 
 	AudioManager::add(new Audio("Flap", "res/sounds/flap.wav"));
 	AudioManager::add(new Audio("Hit", "res/sounds/hit.wav"));

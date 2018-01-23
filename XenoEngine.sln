@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Xeno", "Xeno\Xeno.vcxproj", "{A7AF89F6-1185-4303-9031-688784C77E7C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flappy", "Flappy\Flappy.vcxproj", "{937ACC15-BBAD-45C3-B572-6347CCFB27CB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "box2D", "box2D\box2D.vcxproj", "{7640EF28-65E5-444B-B19B-CE92E4E495C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x64.Build.0 = XenoWeb|x64
 		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x86.ActiveCfg = XenoWeb|Win32
 		{937ACC15-BBAD-45C3-B572-6347CCFB27CB}.XenoWeb|x86.Build.0 = XenoWeb|Win32
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Debug|x64.ActiveCfg = Debug|x64
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Debug|x64.Build.0 = Debug|x64
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Debug|x86.ActiveCfg = Debug|Win32
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Debug|x86.Build.0 = Debug|Win32
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Release|x64.ActiveCfg = Release|x64
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Release|x64.Build.0 = Release|x64
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Release|x86.ActiveCfg = Release|Win32
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.Release|x86.Build.0 = Release|Win32
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.XenoWeb|x64.ActiveCfg = Release|x64
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.XenoWeb|x64.Build.0 = Release|x64
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.XenoWeb|x86.ActiveCfg = Release|Win32
+		{7640EF28-65E5-444B-B19B-CE92E4E495C7}.XenoWeb|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
