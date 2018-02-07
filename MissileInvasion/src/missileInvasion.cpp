@@ -10,6 +10,7 @@ class Game : public Xeno
 {
 private:
 	Window* m_Window;
+	Camera2D* camera;
 	Background* background;
 	Plane* plane;
 
@@ -26,11 +27,12 @@ public:
 
 	void init() override
 	{
+		camera = new Camera2D(vec3(0, 0, 0), 16.0f, 9, 2.5f);
 		background = new Background();
-		plane = new Plane(vec3(0, 0, 0));
+		plane = new Plane(vec2(0, 0));
 
 		// set orthographic view
-		mat4 pr_matrix = mat4::orthographic(-10.0f, 10.0f, -10.0f * 9.0f / 16.0f, 10.0f * 9.0f / 16.0f, -1.0f, 1.0f);
+		mat4 pr_matrix = mat4::orthographic(-16.0f, 16.0f, -9, 9.0f, -1.0f, 1.0f);
 
 		std::vector<Renderable2D*> sprites = { background, plane };
 		for (int i = 0; i < sprites.size(); i++)
@@ -48,18 +50,20 @@ public:
 
 	void tick() override
 	{
-		std::cout << getUPS() << " ups, " << getFPS() << " fps" << std::endl;
+		//std::cout << getUPS() << " ups, " << getFPS() << " fps" << std::endl;
 	}
 
 	void update() override
 	{
-		plane->update(m_Window);
+			plane->update(m_Window, this->getTimeElapsed());
+			//camera->setPosition(plane->getPosition());
+			//camera->update(); 
 	}
 
 	void render() override
 	{
-		background->render();
-		plane->render();
+		background->render(camera->getCameraMatrix());
+		plane->render(camera->getCameraMatrix());
 	}
 };
 

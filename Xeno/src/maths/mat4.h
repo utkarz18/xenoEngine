@@ -16,7 +16,7 @@ namespace xeno { namespace maths {
 		mat4();
 		mat4(float diagonal);
 
-		static mat4 indentity();
+		static mat4 identity();
 
 		mat4& multiply(const mat4& other);
 		friend mat4 operator *(mat4 left, const mat4& right);
@@ -32,6 +32,7 @@ namespace xeno { namespace maths {
 
 		static mat4 orthographic(float left, float right, float bottom, float top, float near, float far);
 		static mat4 perspective(float fov, float aspectRatio, float near, float far);
+		static mat4 lookAt(const vec3& camera, const vec3& object, const vec3& up);
 
 		static mat4 translate(const vec3& translation);
 		static mat4 rotate(float angle, const vec3& axis);

@@ -1,6 +1,6 @@
 #include "plane.h"
 
-Plane::Plane(vec3 position)
+Plane::Plane(vec2 position)
 {
 	init();
 	m_Position = position;
@@ -52,27 +52,36 @@ void Plane::init()
 
 	ib = new IndexBuffer(indices, 6);
 
-	m_Texture = new Texture("bird", "res/sprites/plane.png");
+	m_Texture = new Texture("plane", "res/sprites/plane.png");
 	m_Shader = new Shader("res/shaders/plane.vert", "res/shaders/plane.frag", "Plane");
-
-	m_Shader->enable();
-	m_Shader->setUniformMat4("vw_matrix", mat4::translate(m_Position));
-	m_Shader->disable();
 }
 
-void Plane::update(const Window* window)
+void Plane::update(Window* window, float timeElapsed)
 {
-	m_Position.y += 0.05f;
-	vec2 mousePos = window->getMousePosition();
-	float deltaY = m_Position.y - mousePos.y;
-	float deltaX = m_Position.x - mousePos.x;
-	//rot = (atan2(deltaY, deltaX)*180.0000) / 3.1416;
+	if (!window->isMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
+		m_Position.y += 0.05f;
+	else
+	{
+		std::cout << "Fuck Santhosh" << std::endl;
+		vec2 mousePos = window->getMousePosition();
+		vec2 mouseScreenPos = maths::vec2((float)(mousePos.x * 32.0f / window->getWidth() - 16.0f), (float)(9.0f - mousePos.y * 18.0f / window->getHeight()));
+		float deltaX = mousePos.x - mouseScreenPos.x;
+		float deltaY = mousePos.y - mouseScreenPos.y;
+		rot = (atan2(deltaY, deltaX)*180.0000) / 3.1416;
+		//distance calculation
+		float radius = mouseScreenPos.distance(m_Position);
+		m_Position.x = 0.0f + radius * cos(rot);
+		m_Position.y = 0.0f + radius * sin(rot);
+		/*m_Position.x = mouseScreenPos.x;
+		m_Position.y = mouseScreenPos.y;*/
+		rot = (atan2(m_Position.y, m_Position.x)*180.0000) / 3.1416;
+	}
 }
 
-void Plane::render()
+void Plane::render(mat4 vw_matrix)
 {
 	m_Shader->enable();
-	m_Shader->setUniformMat4("ml_matrix", mat4::translate(m_Position)*mat4::rotate(rot, vec3(0, 0, 1)));
+	m_Shader->setUniformMat4("ml_matrix", mat4::rotate(rot + 0 % 90, vec3(0.0f, 0.0f, 1.0f)) * mat4::translate(m_Position));
 	glActiveTexture(GL_TEXTURE1);
 	m_Texture->bind();
 	m_Mesh->render(ib);

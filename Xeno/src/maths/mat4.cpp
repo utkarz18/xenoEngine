@@ -4,14 +4,12 @@ namespace xeno { namespace maths {
 
 	mat4::mat4()
 	{
-		for (int i = 0; i < 4 * 4; i++)
-			elements[i] = 0.0f;
+		memset(elements, 0, 4 * 4 * sizeof(float));
 	}
 
 	mat4::mat4(float diagonal)
 	{
-		for (int i = 0; i < 4 * 4; i++)
-			elements[i] = 0.0f;
+		memset(elements, 0, 4 * 4 * sizeof(float));
 
 		elements[0 + 0 * 4] = diagonal;
 		elements[1 + 1 * 4] = diagonal;
@@ -19,7 +17,7 @@ namespace xeno { namespace maths {
 		elements[3 + 3 * 4] = diagonal;
 	}
 
-	mat4 mat4::indentity()
+	mat4 mat4::identity()
 	{
 		return mat4(1.0f);
 	}
@@ -27,16 +25,16 @@ namespace xeno { namespace maths {
 	mat4& mat4::multiply(const mat4& other)
 	{
 		float data[16];
-		for (int y = 0; y < 4; y++)
+		for (int row = 0; row < 4; row++)
 		{
-			for (int x = 0; x < 4; x++)
+			for (int col = 0; col < 4; col++)
 			{
 				float sum = 0.0f;
 				for (int e = 0; e < 4; e++)
 				{
-					sum += elements[x + e * 4] * other.elements[e + y * 4];
+					sum += elements[e + row * 4] * other.elements[col + e * 4];
 				}
-				data[x + y * 4] = sum;
+				data[col + row * 4] = sum;
 			}
 		}
 		memcpy(elements, data, 4 * 4 * sizeof(float));
@@ -234,6 +232,28 @@ namespace xeno { namespace maths {
 		result.elements[2 + 3 * 4] = (2.0f * near * far) / (near - far);
 
 		return result;
+	}
+
+	mat4 mat4::lookAt(const vec3& camera, const vec3& object, const vec3& up)
+	{
+		mat4 result = identity();
+		vec3 f = (object - camera).normalize();
+		vec3 s = f.cross(up.normalize());
+		vec3 u = s.cross(f);
+
+		result.elements[0 + 0 * 4] = s.x;
+		result.elements[0 + 1 * 4] = s.y;
+		result.elements[0 + 2 * 4] = s.z;
+
+		result.elements[1 + 0 * 4] = u.x;
+		result.elements[1 + 1 * 4] = u.y;
+		result.elements[1 + 2 * 4] = u.z;
+
+		result.elements[2 + 0 * 4] = -f.x;
+		result.elements[2 + 1 * 4] = -f.y;
+		result.elements[2 + 2 * 4] = -f.z;
+
+		return result * translate(vec3(-camera.x, -camera.y, -camera.z));
 	}
 
 	mat4 mat4::translate(const vec3& translation)

@@ -15,5 +15,5 @@ public:
 	~Background();
 
 	void init() override;
-	void render();
+	void render(mat4 vw_matrix);
 };

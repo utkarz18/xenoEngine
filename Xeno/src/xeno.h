@@ -5,7 +5,7 @@
 #endif
 
 #include "graphics/window.h"
-#include "graphics/texture_manager.h"
+#include "graphics/Camera2D.h"
 #include "graphics/buffers/vertexBuffer.h"
 #include "graphics/buffers/indexBuffer.h"
 
@@ -29,10 +29,7 @@ namespace xeno {
 
 	protected:
 		Xeno()
-			: m_FramesPerSecond(0), m_UpdatesPerSecond(0)
-		{
-
-		}
+			: m_FramesPerSecond(0), m_UpdatesPerSecond(0){}
 
 		virtual ~Xeno()
 		{
@@ -53,12 +50,13 @@ namespace xeno {
 
 		const unsigned int getFPS() const { return m_FramesPerSecond; }
 		const unsigned int getUPS() const { return m_UpdatesPerSecond; }
+		const float getTimeElapsed() const { return m_Timer->elapsed(); }
 
 	public:
 		void start()
 		{
-			init();
 			m_Timer = new Timer();
+			init();
 		}
 
 		void run()

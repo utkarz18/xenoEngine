@@ -34,6 +34,12 @@ namespace xeno { namespace maths {
 		friend vec3 operator -(vec3 left, const vec3& right);
 		friend vec3 operator *(vec3 left, const vec3& right);
 		friend vec3 operator /(vec3 left, const vec3& right);
+
+		vec3 cross(const vec3& other) const;
+		float dot(const vec3& other) const;
+		float magnitude() const;
+		vec3 normalize() const;
+
 		friend std::ostream& operator <<(std::ostream& stream, const vec3& vector);
 	};
 
