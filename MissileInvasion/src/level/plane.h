@@ -11,9 +11,10 @@ class Plane : public Renderable2D
 private:
 	VertexBuffer *vb, *tb;
 	IndexBuffer *ib;
-	vec3 m_Position;
-	float rot;
+	vec2 m_Position;
+	float rot, rot1;
 	const float SIZE = 2.0f;
+	const float SPEED = 8.0f;
 
 public:
 	Plane(vec2 postion);

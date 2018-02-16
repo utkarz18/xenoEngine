@@ -10,6 +10,7 @@ class Background : public Renderable2D
 private:
 	VertexBuffer *vb, *tb;
 	IndexBuffer *ib;
+	vec2 m_Position;
 public:
 	Background();
 	~Background();

@@ -29,7 +29,7 @@ namespace xeno { namespace maths {
 		bool operator !=(vec2& other);
 
 		float magnitude() const;
-		vec2 normalise() const;
+		vec2 normalize() const;
 		float distance(const vec2& other) const;
 		float dot(const vec2& other) const;
 

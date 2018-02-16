@@ -119,6 +119,7 @@ namespace xeno {namespace graphics {
 	void Window::clear() const
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClearColor(0.0f, 0.56f, 1.0f, 1.0f);
 	}
 
 	void Window::update()
@@ -128,7 +129,7 @@ namespace xeno {namespace graphics {
 			std::cout << "OpenGL Error: " << error << std::endl;
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
-
+		wglSwapIntervalEXT(1);
 		audio::AudioManager::update();
 	}
 

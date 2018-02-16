@@ -51,14 +51,14 @@ void Background::init()
 
 	ib = new IndexBuffer(indices, 6);
 
-	m_Texture = new Texture("pipe", "res/sprites/bg.png");
+	m_Texture = new Texture("clouds", "res/sprites/bg.png");
 	m_Shader = new Shader("res/shaders/bg.vert", "res/shaders/bg.frag", "Background");
 }
 
 void Background::render(mat4 vw_matrix)
 {
 	m_Shader->enable();
-	//m_Shader->setUniformMat4("vw_matrix", vw_matrix);
+	m_Shader->setUniformMat4("vw_matrix", vw_matrix);
 	glActiveTexture(GL_TEXTURE0);
 	m_Texture->bind();
 	m_Mesh->render(ib);

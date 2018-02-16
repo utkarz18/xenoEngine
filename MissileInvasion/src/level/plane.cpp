@@ -58,30 +58,22 @@ void Plane::init()
 
 void Plane::update(Window* window, float timeElapsed)
 {
-	if (!window->isMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
-		m_Position.y += 0.05f;
-	else
-	{
-		std::cout << "Fuck Santhosh" << std::endl;
 		vec2 mousePos = window->getMousePosition();
 		vec2 mouseScreenPos = maths::vec2((float)(mousePos.x * 32.0f / window->getWidth() - 16.0f), (float)(9.0f - mousePos.y * 18.0f / window->getHeight()));
-		float deltaX = mousePos.x - mouseScreenPos.x;
-		float deltaY = mousePos.y - mouseScreenPos.y;
-		rot = (atan2(deltaY, deltaX)*180.0000) / 3.1416;
-		//distance calculation
-		float radius = mouseScreenPos.distance(m_Position);
-		m_Position.x = 0.0f + radius * cos(rot);
-		m_Position.y = 0.0f + radius * sin(rot);
-		/*m_Position.x = mouseScreenPos.x;
-		m_Position.y = mouseScreenPos.y;*/
-		rot = (atan2(m_Position.y, m_Position.x)*180.0000) / 3.1416;
-	}
+		vec2 targetPos = mouseScreenPos + vec2(20.0f, 20.0f) * mouseScreenPos.normalize();
+
+		float deltaX = targetPos.x - m_Position.x;
+		float deltaY = targetPos.y - m_Position.y;
+		float radian = atan2(deltaY, deltaX);
+		m_Position.x += SPEED * cos(radian) * 0.05f;
+		m_Position.y += SPEED * sin(radian) * 0.05f;
+		rot = maths::toDegrees(radian) - 90.0f;
 }
 
 void Plane::render(mat4 vw_matrix)
 {
 	m_Shader->enable();
-	m_Shader->setUniformMat4("ml_matrix", mat4::rotate(rot + 0 % 90, vec3(0.0f, 0.0f, 1.0f)) * mat4::translate(m_Position));
+	m_Shader->setUniformMat4("ml_matrix", mat4::rotate(rot, vec3(0.0f, 0.0f, 1.0f)) * mat4::translate(m_Position) * vw_matrix);
 	glActiveTexture(GL_TEXTURE1);
 	m_Texture->bind();
 	m_Mesh->render(ib);

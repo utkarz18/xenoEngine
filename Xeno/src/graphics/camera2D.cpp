@@ -17,6 +17,8 @@ void Camera2D::update()
 {
 	if (m_NeedsUpdate)
 	{
+		/*m_Position.x *= m_MovementSpeed;
+		m_Position.y *= m_MovementSpeed;*/
 		cameraMatrix = maths::mat4::translate(maths::vec3(-m_Position.x, -m_Position.y, 0.0f));
 		m_NeedsUpdate = false;
 	}

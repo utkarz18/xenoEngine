@@ -88,7 +88,7 @@ namespace xeno { namespace maths {
 		return sqrt(x * x + y * y);
 	}
 
-	vec2 vec2::normalise() const
+	vec2 vec2::normalize() const
 	{
 		float length = magnitude();
 		return vec2(x / length, y / length);
